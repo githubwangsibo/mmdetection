@@ -43,7 +43,7 @@ class FashionInference(nn.Module):
             result = self.seg_model(return_loss=False, rescale=True, **data)
 
         # Obtain Binary Mask
-        bbox_result, segm_result = result
+        bbox_result, segm_result = result[0]
         bboxes = np.vstack(bbox_result)
         labels = [
             np.full(bbox.shape[0], i, dtype=np.int32)
