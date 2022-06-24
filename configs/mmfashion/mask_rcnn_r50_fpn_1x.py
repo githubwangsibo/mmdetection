@@ -151,7 +151,12 @@ test_pipeline = [
             dict(type='Normalize', **img_norm_cfg),
             dict(type='Pad', size_divisor=32),
             dict(type='ImageToTensor', keys=['img']),
-            dict(type='Collect', keys=['img']),
+            dict(
+                type='Collect', 
+                keys=['img'], 
+                meta_keys=('filename', 'ori_shape',
+                        'img_shape', 'pad_shape', 'scale_factor', 'flip',
+                        'flip_direction', 'img_norm_cfg')),
         ])
 ]
 
