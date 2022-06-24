@@ -1,7 +1,6 @@
 # model settings
 model = dict(
     type='MaskRCNN',
-    pretrained='checkpoint/resnet50.pth',
     backbone=dict(
         type='ResNet',
         depth=50,
@@ -9,7 +8,9 @@ model = dict(
         out_indices=(0, 1, 2, 3),
         frozen_stages=1,
         norm_cfg=dict(type='BN', requires_grad=True),
-        style='pytorch'),
+        norm_eval=True,
+        style='pytorch',
+        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
@@ -111,10 +112,7 @@ train_cfg = dict(
 
 test_cfg = dict(
     rpn=dict(
-        nms_across_levels=False,
         nms_pre=1000,
-        nms_post=1000,
-        max_num=1000,
         max_per_img=1000,
         nms=dict(type='nms', iou_threshold=0.7),
         min_bbox_size=0),
