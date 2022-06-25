@@ -7,7 +7,7 @@ from mmdet.apis import init_detector, inference_detector, show_result_pyplot
 
 
 if __name__ == "__main__": 
-    config_file = './mask_rcnn/mask_rcnn_r50_fpn_1x_coco.py'
+    config_file = './configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.py'
     checkpoint_file = './models/mask_rcnn_r50_fpn_1x_coco_20200205-d4b0c5d6.pth'
 
     model = init_detector(config_file, checkpoint_file, device='cuda:1')
