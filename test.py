@@ -7,8 +7,8 @@ from mmdet.apis import init_detector, inference_detector, show_result_pyplot
 
 
 if __name__ == "__main__": 
-    config_file = './configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.py'
-    checkpoint_file = './models/mask_rcnn_r50_fpn_1x_coco_20200205-d4b0c5d6.pth'
+    config_file = './configs/deepfashion/mask_rcnn_r50_fpn_15e_deepfashion.py '
+    checkpoint_file = './models/mask_rcnn_r50_fpn_15e_deepfashion_20200329_192752.pth'
 
     model = init_detector(config_file, checkpoint_file, device='cuda:1')
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # if not os.path.exists(out_dir):
     #     os.mkdir(out_dir)
 
-    img = 'demo/demo.jpg'
+    img = '../../demo_images/fashionMENPantsid0000014302_7additional.jpg'
     result = inference_detector(model, img)
     show_result_pyplot(model=model, img=img, result=result, out_file='testOut.jpg')
 
