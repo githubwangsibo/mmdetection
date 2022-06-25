@@ -12,14 +12,8 @@ if __name__ == "__main__":
 
     model = init_detector(config_file, checkpoint_file, device='cuda:1')
 
-    # img_dir = 'data/VOCdevkit/VOC2007/JPEGImages/'
-    # out_dir = 'results/'
-
-    # if not os.path.exists(out_dir):
-    #     os.mkdir(out_dir)
-
-    img = '../../demo_images/fashionMENPantsid0000014302_7additional.jpg'
+    img = '../../demo_images/fashionWOMENBlouses_Shirtsid0000255001_4full.jpg'
     result = inference_detector(model, img)
-    show_result_pyplot(model=model, img=img, result=result, out_file='testOut.jpg')
+    show_result_pyplot(model=model, img=img, result=result, out_file='testOut.jpg', score_thr=0.01)
 
-    print(result)
+    # print(result)
