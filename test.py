@@ -8,7 +8,8 @@ from mmdet.apis import init_detector, inference_detector, show_result_pyplot
 
 if __name__ == "__main__": 
     config_file = './configs/deepfashion/mask_rcnn_r50_fpn_15e_deepfashion.py'
-    checkpoint_file = './models/mask_rcnn_r50_fpn_15e_deepfashion_20200329_192752.pth'
+    # checkpoint_file = './models/mask_rcnn_r50_fpn_15e_deepfashion_20200329_192752.pth'
+    checkpoint_file = './epoch_15.pth'
 
     model = init_detector(config_file, checkpoint_file, device='cuda:1')
 
